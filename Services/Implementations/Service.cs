@@ -1,16 +1,16 @@
 ﻿using AutoMapper;
-using BE_Template_NetCore.Data;
-using BE_Template_NetCore.Dtos;
-using BE_Template_NetCore.Models;
-using BE_Template_NetCore.Models.Classes;
-using BE_Template_NetCore.Services.Interfaces;
+using Almacen.Data;
+using Almacen.Dtos;
+using Almacen.Models;
+using Almacen.Models.Classes;
+using Almacen.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BE_Template_NetCore.Services.Implementations
+namespace Almacen.Services.Implementations
 {
   public class Service : IService
   {

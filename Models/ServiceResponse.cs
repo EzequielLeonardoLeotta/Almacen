@@ -1,4 +1,4 @@
-﻿namespace BE_Template_NetCore.Models
+﻿namespace Almacen.Models
 {
   public class ServiceResponse<T>
   {

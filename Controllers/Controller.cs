@@ -1,12 +1,12 @@
-﻿using BE_Template_NetCore.Dtos;
-using BE_Template_NetCore.Models;
-using BE_Template_NetCore.Models.Classes;
-using BE_Template_NetCore.Services.Interfaces;
+﻿using Almacen.Dtos;
+using Almacen.Models;
+using Almacen.Models.Classes;
+using Almacen.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace BE_Template_NetCore.Controllers
+namespace Almacen.Controllers
 {
   [ApiController]
   [Route("api/v1/[controller]")]

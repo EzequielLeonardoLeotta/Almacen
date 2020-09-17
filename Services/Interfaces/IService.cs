@@ -1,10 +1,10 @@
-﻿using BE_Template_NetCore.Dtos;
-using BE_Template_NetCore.Models;
-using BE_Template_NetCore.Models.Classes;
+﻿using Almacen.Dtos;
+using Almacen.Models;
+using Almacen.Models.Classes;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace BE_Template_NetCore.Services.Interfaces
+namespace Almacen.Services.Interfaces
 {
   public interface IService
   {

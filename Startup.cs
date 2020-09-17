@@ -1,7 +1,7 @@
 using AutoMapper;
-using BE_Template_NetCore.Data;
-using BE_Template_NetCore.Services.Implementations;
-using BE_Template_NetCore.Services.Interfaces;
+using Almacen.Data;
+using Almacen.Services.Implementations;
+using Almacen.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -9,7 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace BE_Template_NetCore
+namespace Almacen
 {
   public class Startup
   {

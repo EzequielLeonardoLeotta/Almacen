@@ -1,4 +1,4 @@
-﻿namespace BE_Template_NetCore.Dtos
+﻿namespace Almacen.Dtos
 {
   public class Dto
   {

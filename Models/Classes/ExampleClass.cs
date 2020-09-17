@@ -1,4 +1,4 @@
-﻿namespace BE_Template_NetCore.Models.Classes
+﻿namespace Almacen.Models.Classes
 {
   public class ExampleClass
   {

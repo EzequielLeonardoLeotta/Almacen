@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>BE_Template_NetCore</RootNamespace>
+    <RootNamespace>Almacen</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

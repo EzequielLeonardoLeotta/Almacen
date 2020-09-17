@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using BE_Template_NetCore.Dtos;
-using BE_Template_NetCore.Models.Classes;
+using Almacen.Dtos;
+using Almacen.Models.Classes;
 
-namespace BE_Template_NetCore.AutoMapperProfile
+namespace Almacen.AutoMapperProfile
 {
   public class AutoMapperProfile : Profile
   {

@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace BE_Template_NetCore
+namespace Almacen
 {
   public class Program
   {

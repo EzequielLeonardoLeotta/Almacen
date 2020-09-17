@@ -1,7 +1,7 @@
-﻿using BE_Template_NetCore.Models.Classes;
+﻿using Almacen.Models.Classes;
 using Microsoft.EntityFrameworkCore;
 
-namespace BE_Template_NetCore.Data
+namespace Almacen.Data
 {
   public class DataContext : DbContext
   {
