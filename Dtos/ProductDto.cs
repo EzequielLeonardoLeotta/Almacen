@@ -1,6 +1,6 @@
 ﻿namespace Almacen.Dtos
 {
-  public class Dto
+  public class ProductDto
   {
     public string Attribute { get; set; }
   }

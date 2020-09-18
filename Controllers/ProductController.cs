@@ -10,11 +10,11 @@ namespace Almacen.Controllers
 {
   [ApiController]
   [Route("api/v1/[controller]")]
-  public class Controller : ControllerBase
+  public class ProductController : ControllerBase
   {
-    private readonly IService _service;
+    private readonly IServiceProduct _service;
 
-    public Controller(IService service)
+    public ProductController(IServiceProduct service)
     {
       _service = service;
     }
@@ -27,7 +27,7 @@ namespace Almacen.Controllers
     public async Task<IActionResult> Get(int id) => Ok(await _service.Get(id));
 
     [HttpPost]
-    public async Task<IActionResult> Add(Dto dto) => Ok(await _service.Add(dto));
+    public async Task<IActionResult> Add(ProductDto dto) => Ok(await _service.Add(dto));
 
     [HttpPut]
     public async Task<IActionResult> Update(Product exampleClass)

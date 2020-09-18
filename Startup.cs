@@ -24,7 +24,7 @@ namespace Almacen
       services.AddDbContext<DataContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
       services.AddControllers();
       services.AddAutoMapper(typeof(Startup));
-      services.AddScoped<IService, Service>();
+      services.AddScoped<IServiceWarehouse, ServiceWarehouse>();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

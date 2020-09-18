@@ -17,10 +17,10 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "BE_Template_NetCore": {
+    "Almacen": {
       "commandName": "Project",
       "launchBrowser": false,
-      "launchUrl": "Example",
+      "launchUrl": "Almacen",
       "applicationUrl": "http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
