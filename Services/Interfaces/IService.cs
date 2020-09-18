@@ -9,11 +9,11 @@ namespace Almacen.Services.Interfaces
   public interface IService
   {
     #region CRUD
-    Task<ServiceResponse<List<ExampleClass>>> GetAll();
-    Task<ServiceResponse<ExampleClass>> Get(int id);
-    Task<ServiceResponse<List<ExampleClass>>> Add(Dto dto);
-    Task<ServiceResponse<ExampleClass>> Update(ExampleClass exampleClass);
-    Task<ServiceResponse<List<ExampleClass>>> Delete(int id);
+    Task<ServiceResponse<List<Product>>> GetAll();
+    Task<ServiceResponse<Product>> Get(int id);
+    Task<ServiceResponse<List<Product>>> Add(Dto dto);
+    Task<ServiceResponse<Product>> Update(Product exampleClass);
+    Task<ServiceResponse<List<Product>>> Delete(int id);
     #endregion
   }
 }

@@ -8,7 +8,7 @@ namespace Almacen.AutoMapperProfile
   {
     public AutoMapperProfile()
     {
-      CreateMap<Dto, ExampleClass>();
+      CreateMap<Dto, Product>();
     }
   }
 }

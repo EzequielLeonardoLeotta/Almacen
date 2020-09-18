@@ -30,9 +30,9 @@ namespace Almacen.Controllers
     public async Task<IActionResult> Add(Dto dto) => Ok(await _service.Add(dto));
 
     [HttpPut]
-    public async Task<IActionResult> Update(ExampleClass exampleClass)
+    public async Task<IActionResult> Update(Product exampleClass)
     {
-      ServiceResponse<ExampleClass> response = await _service.Update(exampleClass);
+      ServiceResponse<Product> response = await _service.Update(exampleClass);
       return response.Data switch
       {
         null => NotFound(response),
@@ -43,7 +43,7 @@ namespace Almacen.Controllers
     [HttpDelete("attribute/{attribute}")]
     public async Task<IActionResult> Delete(int id)
     {
-      ServiceResponse<List<ExampleClass>> response = await _service.Delete(id);
+      ServiceResponse<List<Product>> response = await _service.Delete(id);
       return response.Data switch
       {
         null => NotFound(response),
