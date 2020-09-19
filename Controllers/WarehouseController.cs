@@ -40,7 +40,7 @@ namespace Almacen.Controllers
       };
     }
 
-    [HttpDelete("attribute/{attribute}")]
+    [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
       ServiceResponse<List<Warehouse>> response = await _service.Delete(id);

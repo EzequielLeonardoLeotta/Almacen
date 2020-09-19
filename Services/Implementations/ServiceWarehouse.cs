@@ -77,15 +77,15 @@ namespace Almacen.Services.Implementations
       return serviceResponse;
     }
 
-    public async Task<ServiceResponse<Warehouse>> Update(Warehouse exampleClass)
+    public async Task<ServiceResponse<Warehouse>> Update(Warehouse warehouse)
     {
       ServiceResponse<Warehouse> serviceResponse = new ServiceResponse<Warehouse>();
 
       try
       {
-        _context.Warehouse.Update(exampleClass);
+        _context.Warehouse.Update(warehouse);
         await _context.SaveChangesAsync();
-        serviceResponse.Data = exampleClass;
+        serviceResponse.Data = warehouse;
       }
       catch (Exception e)
       {
@@ -102,8 +102,8 @@ namespace Almacen.Services.Implementations
 
       try
       {
-        Warehouse exampleClass = await GetWarehouse(id);
-        _context.Warehouse.Remove(exampleClass);
+        Warehouse warehouse = await GetWarehouse(id);
+        _context.Warehouse.Remove(warehouse);
         await _context.SaveChangesAsync();
         serviceResponse.Data = await GetAllWarehouses();
       }
