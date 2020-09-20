@@ -1,7 +1,7 @@
 ﻿using Almacen.Dtos;
 using Almacen.Models;
 using Almacen.Models.Classes;
-using Almacen.Services.Interfaces;
+using Almacen.Services.ProductService;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -12,9 +12,9 @@ namespace Almacen.Controllers
   [Route("api/v1/[controller]")]
   public class ProductController : ControllerBase
   {
-    private readonly IServiceProduct _service;
+    private readonly IProductService _service;
 
-    public ProductController(IServiceProduct service)
+    public ProductController(IProductService service)
     {
       _service = service;
     }
@@ -27,12 +27,12 @@ namespace Almacen.Controllers
     public async Task<IActionResult> Get(int id) => Ok(await _service.Get(id));
 
     [HttpPost]
-    public async Task<IActionResult> Add(ProductDto dto) => Ok(await _service.Add(dto));
+    public async Task<IActionResult> Add(PostProductDto productDto) => Ok(await _service.Add(productDto));
 
     [HttpPut]
-    public async Task<IActionResult> Update(Product exampleClass)
+    public async Task<IActionResult> Update(PutProductDto putProductDto)
     {
-      ServiceResponse<Product> response = await _service.Update(exampleClass);
+      ServiceResponse<Product> response = await _service.Update(putProductDto);
       return response.Data switch
       {
         null => NotFound(response),
@@ -40,10 +40,10 @@ namespace Almacen.Controllers
       };
     }
 
-    [HttpDelete("attribute/{attribute}")]
+    [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
-      ServiceResponse<List<Product>> response = await _service.Delete(id);
+      ServiceResponse<List<GetProductDto>> response = await _service.Delete(id);
       return response.Data switch
       {
         null => NotFound(response),

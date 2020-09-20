@@ -9,7 +9,7 @@ namespace Almacen.Models.Classes
     public string Name { get; set; }
     public string Description { get; set; }
     public float Price { get; set; }
-    public List<Category> Categories { get; set; }
+    public List<Categorization> Categorizations { get; set; }
     public Warehouse Warehouse { get; set; }
     public DateTime AdmissionDate { get; set; }
     public DateTime UpdateDate { get; set; }

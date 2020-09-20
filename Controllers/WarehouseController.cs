@@ -1,7 +1,7 @@
 ﻿using Almacen.Dtos;
 using Almacen.Models;
 using Almacen.Models.Classes;
-using Almacen.Services.Interfaces;
+using Almacen.Services.WarehouseService;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -12,9 +12,9 @@ namespace Almacen.Controllers
   [Route("api/v1/[controller]")]
   public class WarehouseController : ControllerBase
   {
-    private readonly IServiceWarehouse _service;
+    private readonly IWarehouseService _service;
 
-    public WarehouseController(IServiceWarehouse service)
+    public WarehouseController(IWarehouseService service)
     {
       _service = service;
     }
@@ -27,7 +27,7 @@ namespace Almacen.Controllers
     public async Task<IActionResult> Get(int id) => Ok(await _service.Get(id));
 
     [HttpPost]
-    public async Task<IActionResult> Add(WarehouseDto warehouseDto) => Ok(await _service.Add(warehouseDto));
+    public async Task<IActionResult> Add(PostWarehouseDto warehouseDto) => Ok(await _service.Add(warehouseDto));
 
     [HttpPut]
     public async Task<IActionResult> Update(Warehouse warehouse)
@@ -43,7 +43,7 @@ namespace Almacen.Controllers
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
-      ServiceResponse<List<Warehouse>> response = await _service.Delete(id);
+      ServiceResponse<List<GetWarehouseDto>> response = await _service.Delete(id);
       return response.Data switch
       {
         null => NotFound(response),

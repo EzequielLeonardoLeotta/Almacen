@@ -1,8 +1,7 @@
 ﻿namespace Almacen.Dtos
 {
-  public class WarehouseDto
+  public class PostCategoryDto
   {
     public string Name { get; set; }
-    public string Address { get; set; }
   }
 }

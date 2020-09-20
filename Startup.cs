@@ -1,13 +1,15 @@
 using AutoMapper;
 using Almacen.Data;
-using Almacen.Services.Implementations;
-using Almacen.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Almacen.Services.WarehouseService;
+using Almacen.Services.CategoryService;
+using Almacen.Services.ProductService;
+using Almacen.Services.CategorizationService;
 
 namespace Almacen
 {
@@ -24,7 +26,10 @@ namespace Almacen
       services.AddDbContext<DataContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
       services.AddControllers();
       services.AddAutoMapper(typeof(Startup));
-      services.AddScoped<IServiceWarehouse, ServiceWarehouse>();
+      services.AddScoped<IWarehouseService, WarehouseService>();
+      services.AddScoped<ICategoryService, CategoryService>();
+      services.AddScoped<IProductService, ProductService>();
+      services.AddScoped<ICategorizationService, CategorizationService>();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
