@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace Almacen.Services.ProductService
 {
@@ -14,11 +15,13 @@ namespace Almacen.Services.ProductService
   {
     private readonly IMapper _mapper;
     private readonly DataContext _context;
+    private readonly ILogger<ProductService> _logger;
 
-    public ProductService(IMapper mapper, DataContext context)
+    public ProductService(IMapper mapper, DataContext context, ILogger<ProductService> logger)
     {
       _mapper = mapper;
       _context = context;
+      _logger = logger;
     }
 
     #region CRUD
@@ -28,12 +31,14 @@ namespace Almacen.Services.ProductService
 
       try
       {
+        _logger.LogInformation("GetAllProducts");
         serviceResponse.Data = await GetAllProducts();
       }
       catch (Exception e)
       {
         serviceResponse.Success = false;
         serviceResponse.Message = e.Message;
+        _logger.LogError(e.Message);
       }
 
       return serviceResponse;
@@ -45,6 +50,7 @@ namespace Almacen.Services.ProductService
 
       try
       {
+        _logger.LogInformation("GetProduct");
         serviceResponse.Data = await GetProduct(id);
         return serviceResponse;
       }
@@ -52,6 +58,7 @@ namespace Almacen.Services.ProductService
       {
         serviceResponse.Success = false;
         serviceResponse.Message = e.Message;
+        _logger.LogError(e.Message);
       }
 
       return serviceResponse;
@@ -63,6 +70,7 @@ namespace Almacen.Services.ProductService
 
       try
       {
+        _logger.LogInformation("AddProduct");
         Product product = _mapper.Map<Product>(productDto);
         product.AdmissionDate = DateTime.Now;
         product.Warehouse = await _context.Warehouse.FirstOrDefaultAsync(w => w.Id == productDto.WarehouseId);
@@ -74,6 +82,7 @@ namespace Almacen.Services.ProductService
       {
         serviceResponse.Success = false;
         serviceResponse.Message = e.Message;
+        _logger.LogError(e.Message);
       }
 
       return serviceResponse;
@@ -85,6 +94,7 @@ namespace Almacen.Services.ProductService
 
       try
       {
+        _logger.LogInformation("UpdateProduct");
         Product product = _mapper.Map<Product>(await GetProduct(putProductDto.Id));
         product.UpdateDate = DateTime.Now;
         product.Price = putProductDto.Price;
@@ -97,6 +107,7 @@ namespace Almacen.Services.ProductService
       {
         serviceResponse.Success = false;
         serviceResponse.Message = e.Message;
+        _logger.LogError(e.Message);
       }
 
       return serviceResponse;
@@ -108,6 +119,7 @@ namespace Almacen.Services.ProductService
 
       try
       {
+        _logger.LogInformation("DeleteProduct");
         Product product = _mapper.Map<Product>(await GetProduct(id));
         _context.Product.Remove(product);
         await _context.SaveChangesAsync();
@@ -117,6 +129,7 @@ namespace Almacen.Services.ProductService
       {
         serviceResponse.Success = false;
         serviceResponse.Message = e.Message;
+        _logger.LogError(e.Message);
       }
 
       return serviceResponse;
